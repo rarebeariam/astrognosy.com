@@ -739,6 +739,240 @@
             color: var(--dim);
         }
 
+        /* ── DEMO ── */
+        .demo {
+            padding: 110px 0 120px;
+            position: relative;
+        }
+
+        .demo::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(0,180,216,0.03) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .demo-head { margin-bottom: 56px; }
+
+        .demo-head h2 em { font-style: italic; color: var(--cyan); }
+
+        .demo-controls {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin-bottom: 48px;
+        }
+
+        .demo-input-row {
+            display: flex;
+            gap: 12px;
+            align-items: stretch;
+        }
+
+        .demo-input-row input {
+            flex: 1;
+            background: #04060e;
+            border: 1px solid rgba(0,180,216,0.25);
+            border-radius: 3px;
+            padding: 14px 20px;
+            font-family: 'DM Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--text);
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .demo-input-row input:focus { border-color: rgba(0,180,216,0.6); }
+        .demo-input-row input::placeholder { color: var(--dim); }
+
+        .demo-run {
+            padding: 14px 28px;
+            background: linear-gradient(135deg, var(--blue), var(--cyan));
+            border: none;
+            border-radius: 3px;
+            color: #fff;
+            font-family: 'DM Mono', monospace;
+            font-size: 0.75rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: opacity 0.2s, transform 0.15s;
+            white-space: nowrap;
+        }
+
+        .demo-run:hover { opacity: 0.88; transform: translateY(-1px); }
+        .demo-run:active { transform: scale(0.98); }
+
+        .demo-presets {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .preset-btn {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.62rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            padding: 6px 14px;
+            border: 1px solid var(--border);
+            border-radius: 2px;
+            background: transparent;
+            color: var(--muted);
+            cursor: pointer;
+            transition: border-color 0.2s, color 0.2s, background 0.2s;
+        }
+
+        .preset-btn:hover, .preset-btn.active {
+            border-color: rgba(0,180,216,0.4);
+            color: var(--cyan);
+            background: rgba(0,180,216,0.05);
+        }
+
+        .demo-agents {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 24px;
+            min-height: 200px;
+        }
+
+        .agent-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 3px;
+            padding: 28px 24px;
+            transition: border-color 0.4s, box-shadow 0.4s;
+        }
+
+        .agent-card.winner {
+            border-color: rgba(0,180,216,0.55);
+            box-shadow: 0 0 28px rgba(0,180,216,0.10);
+        }
+
+        .agent-card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 16px;
+        }
+
+        .agent-name-group { display: flex; flex-direction: column; gap: 3px; }
+
+        .agent-id {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.62rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+
+        .agent-role {
+            font-size: 0.88rem;
+            font-weight: 400;
+            color: var(--text);
+        }
+
+        .winner-badge {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.56rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--cyan);
+            background: rgba(0,180,216,0.1);
+            border: 1px solid rgba(0,180,216,0.3);
+            border-radius: 2px;
+            padding: 3px 8px;
+            opacity: 0;
+            transition: opacity 0.4s 0.2s;
+        }
+
+        .agent-card.winner .winner-badge { opacity: 1; }
+
+        .agent-score {
+            font-family: 'DM Mono', monospace;
+            font-size: 1.6rem;
+            font-weight: 300;
+            letter-spacing: -0.01em;
+            margin-bottom: 12px;
+            transition: color 0.4s;
+        }
+
+        .agent-card.winner .agent-score { color: var(--cyan); }
+
+        .score-track {
+            height: 3px;
+            background: rgba(91,110,204,0.1);
+            border-radius: 2px;
+            margin-bottom: 18px;
+            overflow: hidden;
+        }
+
+        .score-fill {
+            height: 100%;
+            border-radius: 2px;
+            width: 0%;
+            transition: width 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .agent-card.winner .score-fill { background: linear-gradient(90deg, var(--blue), var(--cyan)); }
+        .agent-card:not(.winner) .score-fill { background: var(--blue); opacity: 0.55; }
+
+        .agent-answer {
+            font-size: 0.82rem;
+            color: var(--muted);
+            line-height: 1.7;
+            font-style: italic;
+            font-weight: 300;
+            display: -webkit-box;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .demo-audit {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.62rem;
+            letter-spacing: 0.12em;
+            color: var(--dim);
+            background: #03050c;
+            border: 1px solid rgba(91,110,204,0.08);
+            border-radius: 2px;
+            padding: 12px 18px;
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .demo-audit span { display: flex; gap: 8px; align-items: center; }
+        .demo-audit span::before { content: ''; width: 4px; height: 4px; border-radius: 50%; background: var(--dim); }
+
+        .demo-footer-cta {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        .demo-footer-cta a {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.7rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--cyan);
+            border: 1px solid rgba(0,180,216,0.3);
+            padding: 12px 28px;
+            border-radius: 2px;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+
+        .demo-footer-cta a:hover { background: rgba(0,180,216,0.07); }
+
+        @media (max-width: 960px) {
+            .demo-agents { grid-template-columns: 1fr; max-width: 480px; }
+        }
+
         /* ── REVEAL ── */
         .reveal {
             opacity: 0;
@@ -782,6 +1016,7 @@
         <li><a href="#research">Research</a></li>
         <li><a href="#divisions">Pacific</a></li>
         <li><a href="#divisions">Wharf</a></li>
+        <li><a href="#demo">Demo</a></li>
         <li><a href="#about" class="nav-cta">Contact</a></li>
     </ul>
 </nav>
@@ -904,6 +1139,79 @@
                     <span class="formula-line"><span class="v">winner</span><span class="d"> = </span><span class="f">argmax</span><span class="d">(S) &nbsp;<span class="c">// agent_id excluded</span></span></span>
                 </code>
             </div>
+        </div>
+    </div>
+</section>
+
+<!-- DEMO -->
+<section class="demo" id="demo">
+    <div class="wrap">
+        <div class="demo-head reveal">
+            <p class="label">Live Demo</p>
+            <h2>PCF Arbitration,<br><em>In Your Browser</em></h2>
+            <p class="lead">Three agents compete on the same query. The PCF engine selects the winner based purely on structural convergence with submitted evidence — agent identity excluded.</p>
+        </div>
+
+        <div class="demo-controls reveal" style="transition-delay:0.1s">
+            <div class="demo-input-row">
+                <input type="text" id="demo-query" placeholder="Enter any query..." value="What is machine learning?" autocomplete="off">
+                <button class="demo-run" id="demo-run">Arbitrate &rarr;</button>
+            </div>
+            <div class="demo-presets">
+                <button class="preset-btn active" data-q="What is machine learning?">Machine learning</button>
+                <button class="preset-btn" data-q="What causes inflation?">Inflation</button>
+                <button class="preset-btn" data-q="How do AI agents work?">AI agents</button>
+                <button class="preset-btn" data-q="What is the WARF protocol?">WARF</button>
+            </div>
+        </div>
+
+        <div class="demo-agents reveal" id="demo-agents" style="transition-delay:0.2s">
+            <div class="agent-card" id="card-0">
+                <div class="agent-card-top">
+                    <div class="agent-name-group">
+                        <span class="agent-id">analyst</span>
+                        <span class="agent-role">Data Analyst</span>
+                    </div>
+                    <span class="winner-badge">Winner</span>
+                </div>
+                <div class="agent-score" id="score-0">—</div>
+                <div class="score-track"><div class="score-fill" id="bar-0"></div></div>
+                <p class="agent-answer" id="answer-0">Loading…</p>
+            </div>
+            <div class="agent-card" id="card-1">
+                <div class="agent-card-top">
+                    <div class="agent-name-group">
+                        <span class="agent-id">advocate</span>
+                        <span class="agent-role">Domain Expert</span>
+                    </div>
+                    <span class="winner-badge">Winner</span>
+                </div>
+                <div class="agent-score" id="score-1">—</div>
+                <div class="score-track"><div class="score-fill" id="bar-1"></div></div>
+                <p class="agent-answer" id="answer-1">Loading…</p>
+            </div>
+            <div class="agent-card" id="card-2">
+                <div class="agent-card-top">
+                    <div class="agent-name-group">
+                        <span class="agent-id">skeptic</span>
+                        <span class="agent-role">Critical Reviewer</span>
+                    </div>
+                    <span class="winner-badge">Winner</span>
+                </div>
+                <div class="agent-score" id="score-2">—</div>
+                <div class="score-track"><div class="score-fill" id="bar-2"></div></div>
+                <p class="agent-answer" id="answer-2">Loading…</p>
+            </div>
+        </div>
+
+        <div class="demo-audit" id="demo-audit" style="display:none">
+            <span id="audit-hash">HASH: —</span>
+            <span id="audit-corpus">CORPUS: — tokens</span>
+            <span id="audit-scoring">PCF v1.0 · K=10 · &epsilon;=1e&#8209;9</span>
+        </div>
+
+        <div class="demo-footer-cta">
+            <a href="#" id="demo-streamlit-link" target="_blank">Open interactive demo &rarr;</a>
         </div>
     </div>
 </section>
@@ -1091,6 +1399,220 @@
             ? 'rgba(6,9,18,0.96)'
             : 'rgba(6,9,18,0.82)';
     }, { passive: true });
+})();
+
+// ── PCF ENGINE (JS PORT) ──
+(function() {
+    const EPSILON = 1e-9;
+
+    function tokenize(text) {
+        return (text.toLowerCase().match(/[a-z0-9]+/g) || []);
+    }
+
+    function pcfScore(answerTokens, corpusTokens, K) {
+        K = K || 10;
+        const joint = answerTokens.concat(corpusTokens);
+        const uniq = new Set(joint);
+        if (uniq.size < 2 || joint.length < K + 1) return { S: 0, sigmaK: [] };
+        const n = joint.length;
+        const counts = {};
+        for (const t of joint) counts[t] = (counts[t] || 0) + 1;
+        const pMarg = {};
+        for (const t in counts) pMarg[t] = counts[t] / n;
+        const sigmaKList = [];
+        for (let k = 1; k <= K; k++) {
+            const kw = 1 / (k + 1);
+            const pmiVals = [];
+            for (let i = 0; i < answerTokens.length - k; i++) {
+                const ti = answerTokens[i], tj = answerTokens[i + k];
+                const pTi = pMarg[ti] || EPSILON, pTj = pMarg[tj] || EPSILON;
+                let jc = 0;
+                for (let j = 0; j < joint.length - k; j++) {
+                    if (joint[j] === ti && joint[j + k] === tj) jc++;
+                }
+                const pJoint = jc / Math.max(n - k, 1);
+                if (pJoint <= 0) continue;
+                pmiVals.push(Math.log(pJoint / (pTi * pTj)) * kw);
+            }
+            if (!pmiVals.length) { sigmaKList.push(0); continue; }
+            const mean = pmiVals.reduce((a, b) => a + b, 0) / pmiVals.length;
+            const variance = pmiVals.length > 1
+                ? pmiVals.reduce((a, b) => a + (b - mean) ** 2, 0) / pmiVals.length : 0;
+            sigmaKList.push(mean / (Math.sqrt(variance) + EPSILON));
+        }
+        const S = sigmaKList.length
+            ? sigmaKList.reduce((a, b) => a + b, 0) / sigmaKList.length : 0;
+        return { S, sigmaK: sigmaKList };
+    }
+
+    // ── Query library ──
+    const AGENTS = ['analyst', 'advocate', 'skeptic'];
+    const ROLES  = ['Data Analyst', 'Domain Expert', 'Critical Reviewer'];
+
+    const LIBRARY = {
+        'what is machine learning': [
+            {
+                answer: 'machine learning is a statistical method where algorithms learn patterns from labeled training data to generate predictions on unseen examples without being explicitly programmed rule by rule',
+                corpus: 'machine learning algorithms statistical models supervised learning training data prediction accuracy optimization gradient descent loss function feature engineering classification regression generalization'
+            },
+            {
+                answer: 'machine learning enables computers to improve their performance through experience and exposure to data much like how humans develop expertise through repeated practice across many domains and tasks',
+                corpus: 'computers learning experience improve artificial intelligence human analogies neural networks pattern recognition image classification speech natural language processing recommendation adaptive systems'
+            },
+            {
+                answer: 'machine learning is fundamentally curve fitting in high dimensional spaces and its real world performance depends critically on data quality distribution assumptions and careful regularization to avoid overfitting',
+                corpus: 'machine learning limitations overfitting underfitting bias variance tradeoff regularization data quality distribution shift generalization failure modes evaluation metrics benchmark leakage'
+            }
+        ],
+        'what causes inflation': [
+            {
+                answer: 'inflation is caused by excess money supply relative to goods demand pull inflation occurs when aggregate demand exceeds productive capacity while cost push inflation arises from rising input costs such as energy wages and materials',
+                corpus: 'inflation monetary policy money supply aggregate demand consumer price index central bank interest rates fiscal deficit demand pull cost push wage price spiral energy prices supply constraints'
+            },
+            {
+                answer: 'inflation reflects erosion of purchasing power and emerges from complex interaction of government spending supply chain disruptions energy markets and inflation expectations which become self fulfilling through wage and price setting behavior',
+                corpus: 'purchasing power expectations central bank credibility supply disruptions energy commodity prices government fiscal policy wage negotiations inflation targeting forward guidance monetary transmission'
+            },
+            {
+                answer: 'inflation causation is disputed between monetarist and keynesian economists and empirical evidence supports multiple simultaneous factors without a single dominant mechanism consistently explaining all historical inflationary episodes across different economies',
+                corpus: 'monetarism quantity theory money keynesian demand management inflation debate contested stagflation hyperinflation deflation historical comparison empirical macroeconomics policy disagreement'
+            }
+        ],
+        'how do ai agents work': [
+            {
+                answer: 'ai agents perceive their environment through sensors process observations using a policy function and select actions to maximize cumulative reward over sequential decision steps often trained via reinforcement learning or fine tuned language models',
+                corpus: 'ai agents reinforcement learning policy reward environment observation action state space markov decision process language models tool use planning reasoning autonomy'
+            },
+            {
+                answer: 'ai agents are autonomous software systems that perceive context reason about goals decompose complex tasks into steps and use tools to take real world actions making them fundamentally different from passive question answering systems',
+                corpus: 'autonomous agents goals tools actions context reasoning decomposition planning execution feedback multi step tasks real world integration software environment'
+            },
+            {
+                answer: 'current ai agents are sophisticated prompt orchestration systems that simulate autonomy but lack genuine goal persistence memory or causal understanding and frequently fail on tasks requiring robust multi step planning under uncertainty',
+                corpus: 'agent limitations hallucination context window planning failures prompt engineering scaffolding brittleness benchmark gap real world deployment failure modes evaluation'
+            }
+        ],
+        'what is the warf protocol': [
+            {
+                answer: 'warf is a multi agent arbitration protocol that uses positional correlation field scoring to select the best supported answer from competing agent submissions based purely on structural convergence between proposed answers and submitted evidence corpora',
+                corpus: 'warf protocol multi agent arbitration pcf scoring positional correlation field evidence corpus convergence winner selection audit log sha256 chain agent identity excluded'
+            },
+            {
+                answer: 'warf turns reasoning into reusable network infrastructure by enabling competing agents to submit evidence backed answers where the structurally best answer wins and accumulates into a shared corpus flywheel that grows over successive rounds',
+                corpus: 'reasoning infrastructure reusable artifacts corpus flywheel network effects agent competition evidence backed answers structural selection global intelligence graph reasoning delivery network'
+            },
+            {
+                answer: 'warf is a promising protocol for authority neutral agent arbitration though its reliance on pmi based structural scoring means performance depends on corpus quality and tokenization choices which may favor surface similarity over deeper semantic alignment',
+                corpus: 'warf limitations tokenization quality corpus bias pmi surface similarity semantic gap evaluation benchmark adversarial robustness protocol design tradeoffs'
+            }
+        ]
+    };
+
+    function getPackages(query) {
+        const key = query.toLowerCase().replace(/[^a-z0-9 ]/g, '').trim()
+            .replace(/\s+/g, ' ');
+        // exact or partial match
+        for (const k in LIBRARY) {
+            if (key === k || key.includes(k) || k.includes(key)) {
+                return LIBRARY[k];
+            }
+        }
+        // custom fallback
+        const qt = tokenize(query);
+        const base = qt.concat(qt, qt, qt).join(' ');
+        return [
+            {
+                answer: 'analytical examination of ' + query.toLowerCase() + ' based on systematic evidence evaluation and empirical methods considering primary factors and measurable outcomes',
+                corpus: base + ' analysis evidence data empirical systematic factors outcomes'
+            },
+            {
+                answer: 'comprehensive contextual understanding of ' + query.toLowerCase() + ' drawing from multiple disciplinary perspectives and practical implementation considerations across real world domains',
+                corpus: base + ' context perspectives implementation practical domains understanding'
+            },
+            {
+                answer: 'critical assessment of ' + query.toLowerCase() + ' acknowledging limitations uncertainty and contested interpretations while weighing available evidence against claimed mechanisms',
+                corpus: base + ' limitations uncertainty contested evidence mechanisms critical caveats'
+            }
+        ];
+    }
+
+    function sha256Short(str) {
+        // Simple non-crypto hash for display purposes
+        let hash = 0;
+        for (let i = 0; i < str.length; i++) {
+            hash = ((hash << 5) - hash + str.charCodeAt(i)) | 0;
+        }
+        return Math.abs(hash).toString(16).padStart(8, '0');
+    }
+
+    function runArbitration() {
+        const query = document.getElementById('demo-query').value.trim();
+        if (!query) return;
+
+        const pkgs = getPackages(query);
+        const results = pkgs.map((pkg, i) => {
+            const at = tokenize(pkg.answer);
+            const ct = tokenize(pkg.corpus);
+            const { S } = pcfScore(at, ct);
+            return { idx: i, S, answer: pkg.answer, corpus: pkg.corpus };
+        });
+
+        // Sort by score descending
+        results.sort((a, b) => b.S - a.S);
+        const maxS = results[0].S;
+
+        // Update cards in sorted order
+        const orderMap = [null, null, null];
+        results.forEach((r, rank) => { orderMap[r.idx] = rank; });
+
+        for (let i = 0; i < 3; i++) {
+            const rank = orderMap[i];
+            const r = results.find(x => x.idx === i);
+            const card = document.getElementById('card-' + i);
+            const scoreEl = document.getElementById('score-' + i);
+            const barEl = document.getElementById('bar-' + i);
+            const answerEl = document.getElementById('answer-' + i);
+
+            card.classList.toggle('winner', rank === 0);
+            scoreEl.textContent = (r.S >= 0 ? '+' : '') + r.S.toFixed(4);
+
+            // Animate bar after a tiny delay
+            const pct = maxS > 0 ? Math.max(4, (r.S / (maxS * 1.15)) * 100) : 4;
+            setTimeout(() => { barEl.style.width = pct + '%'; }, 80);
+
+            answerEl.textContent = '"' + r.answer + '"';
+        }
+
+        // Audit row
+        const corpusSize = pkgs.reduce((n, p) => n + tokenize(p.corpus).length, 0);
+        const auditStr = 'warf:' + query + ':' + maxS.toFixed(4);
+        const hash = sha256Short(auditStr);
+        document.getElementById('audit-hash').textContent  = 'HASH: ' + hash + '...';
+        document.getElementById('audit-corpus').textContent = 'CORPUS: ' + corpusSize + ' tokens';
+        const auditEl = document.getElementById('demo-audit');
+        auditEl.style.display = 'flex';
+        auditEl.style.opacity = '0';
+        auditEl.style.transition = 'opacity 0.5s 0.4s';
+        setTimeout(() => { auditEl.style.opacity = '1'; }, 50);
+    }
+
+    // Wire up controls
+    document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById('demo-run').addEventListener('click', runArbitration);
+        document.getElementById('demo-query').addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') runArbitration();
+        });
+        document.querySelectorAll('.preset-btn').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.preset-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                document.getElementById('demo-query').value = btn.dataset.q;
+                runArbitration();
+            });
+        });
+        // Run on load with default query
+        runArbitration();
+    });
 })();
 
 // ── SCROLL REVEAL ──
