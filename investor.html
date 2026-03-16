@@ -1,0 +1,1172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investor Relations — Astrognosy AI</title>
+    <meta name="description" content="Astrognosy AI investor relations. Four patents. One architecture. PCF powers network intrusion detection, LLM cost reduction, industrial fault detection, and the WARF reasoning exchange protocol.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg:         #060912;
+            --bg2:        #0a0d1a;
+            --card:       #0c1025;
+            --blue:       #5B6ECC;
+            --cyan:       #00B4D8;
+            --purple:     #764ba2;
+            --gold:       #c9a84c;
+            --gold-dim:   #9a7b35;
+            --text:       #e8ecf8;
+            --muted:      #8892a4;
+            --dim:        #3d4a5e;
+            --border:     rgba(91, 110, 204, 0.15);
+            --border-g:   rgba(201, 168, 76, 0.18);
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* ── STARFIELD ── */
+        #starfield {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* ── NAV ── */
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 48px;
+            background: rgba(6, 9, 18, 0.82);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border-bottom: 1px solid var(--border);
+            transition: background 0.4s;
+        }
+
+        .nav-brand {
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+            gap: 2px;
+        }
+
+        .nav-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            font-weight: 500;
+            letter-spacing: 0.28em;
+            color: var(--text);
+            text-transform: uppercase;
+        }
+
+        .nav-name em { font-style: normal; color: var(--gold); }
+
+        .nav-sub {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.52rem;
+            letter-spacing: 0.38em;
+            color: var(--dim);
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 36px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.78rem;
+            font-weight: 400;
+            letter-spacing: 0.12em;
+            color: var(--muted);
+            text-decoration: none;
+            text-transform: uppercase;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover { color: var(--text); }
+
+        .nav-cta {
+            padding: 7px 20px !important;
+            border: 1px solid rgba(0, 180, 216, 0.3) !important;
+            color: var(--cyan) !important;
+            border-radius: 2px;
+            transition: background 0.2s !important;
+        }
+
+        .nav-cta:hover { background: rgba(0, 180, 216, 0.07) !important; }
+
+        /* ── SHARED ── */
+        section { position: relative; z-index: 1; }
+
+        .wrap {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 0 48px;
+        }
+
+        .label {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.62rem;
+            letter-spacing: 0.38em;
+            color: var(--gold);
+            text-transform: uppercase;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .label::before {
+            content: '';
+            display: block;
+            width: 28px;
+            height: 1px;
+            background: var(--gold-dim);
+        }
+
+        h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.2rem, 3.8vw, 3.4rem);
+            font-weight: 400;
+            line-height: 1.12;
+            color: var(--text);
+            margin-bottom: 18px;
+        }
+
+        .lead {
+            font-size: 1rem;
+            font-weight: 300;
+            color: var(--muted);
+            line-height: 1.8;
+            max-width: 680px;
+        }
+
+        /* ── REVEAL ── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.75s ease, transform 0.75s ease;
+        }
+
+        .reveal.in { opacity: 1; transform: none; }
+
+        /* ── HERO ── */
+        .hero {
+            position: relative;
+            z-index: 1;
+            padding: 180px 0 120px;
+            border-bottom: 1px solid var(--border);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(201,168,76,0.04) 0%, transparent 65%);
+            pointer-events: none;
+        }
+
+        .hero-eyebrow {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.68rem;
+            letter-spacing: 0.42em;
+            color: var(--gold);
+            text-transform: uppercase;
+            margin-bottom: 28px;
+        }
+
+        .hero h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(3.2rem, 6vw, 5.4rem);
+            font-weight: 300;
+            line-height: 1.08;
+            letter-spacing: 0.01em;
+            color: var(--text);
+            margin-bottom: 28px;
+        }
+
+        .hero h1 em { font-style: italic; color: var(--gold); }
+
+        .hero-sub {
+            font-size: 1.1rem;
+            font-weight: 300;
+            color: var(--muted);
+            max-width: 720px;
+            line-height: 1.8;
+            margin-bottom: 48px;
+        }
+
+        .hero-para {
+            font-size: 0.95rem;
+            font-weight: 300;
+            color: var(--muted);
+            max-width: 760px;
+            line-height: 1.9;
+        }
+
+        .hero-stat-row {
+            display: flex;
+            gap: 48px;
+            margin-top: 52px;
+            flex-wrap: wrap;
+        }
+
+        .hero-stat {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .hero-stat-val {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.4rem;
+            font-weight: 300;
+            color: var(--text);
+            line-height: 1;
+        }
+
+        .hero-stat-val em { font-style: normal; color: var(--gold); }
+
+        .hero-stat-lbl {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.58rem;
+            letter-spacing: 0.28em;
+            color: var(--muted);
+            text-transform: uppercase;
+        }
+
+        /* ── PRODUCT PORTFOLIO ── */
+        .portfolio {
+            padding: 120px 0 100px;
+        }
+
+        .section-head {
+            margin-bottom: 64px;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .div-card {
+            position: relative;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 3px;
+            padding: 40px 34px 36px;
+            overflow: hidden;
+            color: inherit;
+            display: block;
+            transition: border-color 0.35s, transform 0.35s, box-shadow 0.35s;
+        }
+
+        .div-card::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 2px;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.45s ease;
+        }
+
+        .div-card.c-blue::after  { background: linear-gradient(90deg, var(--blue), var(--cyan)); }
+        .div-card.c-cyan::after  { background: linear-gradient(90deg, var(--cyan), var(--blue)); }
+        .div-card.c-gold::after  { background: linear-gradient(90deg, var(--gold), var(--gold-dim)); }
+
+        .div-card:hover::after { transform: scaleX(1); }
+
+        .div-card:hover {
+            border-color: rgba(91, 110, 204, 0.32);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+        }
+
+        .prod-domain {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.58rem;
+            letter-spacing: 0.32em;
+            color: var(--muted);
+            text-transform: uppercase;
+            margin-bottom: 14px;
+        }
+
+        .prod-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            font-weight: 500;
+            color: var(--text);
+            letter-spacing: 0.03em;
+            margin-bottom: 16px;
+        }
+
+        .prod-result {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.72rem;
+            color: var(--cyan);
+            letter-spacing: 0.08em;
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+
+        .prod-result.gold { color: var(--gold); }
+
+        .status-badge {
+            display: inline-block;
+            font-family: 'DM Mono', monospace;
+            font-size: 0.56rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            padding: 4px 10px;
+            border-radius: 2px;
+            border: 1px solid;
+        }
+
+        .status-badge.live    { color: var(--cyan);   border-color: rgba(0,180,216,0.3);   background: rgba(0,180,216,0.06); }
+        .status-badge.beta    { color: var(--blue);   border-color: rgba(91,110,204,0.3);  background: rgba(91,110,204,0.06); }
+        .status-badge.design  { color: var(--muted);  border-color: rgba(136,146,164,0.25); background: transparent; }
+        .status-badge.silicon { color: var(--purple); border-color: rgba(118,75,162,0.3);  background: rgba(118,75,162,0.06); }
+
+        /* ── IP PORTFOLIO ── */
+        .ip-section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .ip-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                repeating-linear-gradient(90deg, transparent, transparent 79px, rgba(201,168,76,0.012) 79px, rgba(201,168,76,0.012) 80px),
+                repeating-linear-gradient(0deg,  transparent, transparent 79px, rgba(201,168,76,0.012) 79px, rgba(201,168,76,0.012) 80px);
+        }
+
+        .ip-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 0;
+        }
+
+        .patent-card {
+            position: relative;
+            background: var(--card);
+            border: 1px solid var(--border-g);
+            border-radius: 3px;
+            padding: 40px 36px;
+            overflow: hidden;
+            transition: border-color 0.35s, transform 0.35s, box-shadow 0.35s;
+        }
+
+        .patent-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, var(--gold-dim), transparent);
+            opacity: 0.6;
+        }
+
+        .patent-card:hover {
+            border-color: rgba(201, 168, 76, 0.38);
+            transform: translateY(-4px);
+            box-shadow: 0 16px 48px rgba(0,0,0,0.4), 0 0 0 1px rgba(201,168,76,0.08);
+        }
+
+        .patent-num {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.58rem;
+            letter-spacing: 0.32em;
+            color: var(--gold-dim);
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .patent-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.55rem;
+            font-weight: 500;
+            color: var(--text);
+            margin-bottom: 14px;
+            line-height: 1.25;
+        }
+
+        .patent-claims {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.72rem;
+            color: var(--gold);
+            letter-spacing: 0.1em;
+            margin-bottom: 18px;
+        }
+
+        .patent-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'DM Mono', monospace;
+            font-size: 0.58rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+        }
+
+        .patent-status.filed {
+            color: var(--muted);
+        }
+
+        .patent-status.filing-today {
+            color: var(--gold);
+        }
+
+        .filing-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--gold);
+            animation: glow-pulse 1.8s ease-in-out infinite;
+            flex-shrink: 0;
+        }
+
+        @keyframes glow-pulse {
+            0%, 100% { opacity: 0.5; box-shadow: 0 0 0 0 rgba(201,168,76,0); }
+            50%       { opacity: 1;   box-shadow: 0 0 8px 3px rgba(201,168,76,0.35); }
+        }
+
+        .ip-total {
+            margin-top: 40px;
+            padding: 32px 40px;
+            background: #04060e;
+            border: 1px solid var(--border-g);
+            border-radius: 3px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .ip-total-val {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            font-weight: 300;
+            color: var(--gold);
+            line-height: 1;
+        }
+
+        .ip-total-lbl {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.62rem;
+            letter-spacing: 0.28em;
+            color: var(--muted);
+            text-transform: uppercase;
+            margin-top: 6px;
+        }
+
+        .ip-total-breakdown {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.66rem;
+            color: var(--dim);
+            letter-spacing: 0.1em;
+            line-height: 1.9;
+        }
+
+        /* ── PITCH DECK ── */
+        .pitch-section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .pitch-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse 70% 50% at 50% 50%, rgba(91,110,204,0.03) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .pitch-frame-wrap {
+            position: relative;
+            border: 1px solid var(--border);
+            border-radius: 3px;
+            overflow: hidden;
+            margin-top: 40px;
+        }
+
+        .pitch-frame-wrap iframe {
+            display: block;
+            width: 100%;
+            height: 680px;
+            border: none;
+            background: #000;
+        }
+
+        .pitch-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 18px;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+
+        .pitch-meta-note {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.6rem;
+            letter-spacing: 0.2em;
+            color: var(--dim);
+            text-transform: uppercase;
+        }
+
+        .btn-gold {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 28px;
+            border: 1px solid var(--border-g);
+            color: var(--gold);
+            text-decoration: none;
+            font-family: 'DM Mono', monospace;
+            font-size: 0.7rem;
+            font-weight: 400;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            border-radius: 2px;
+            transition: background 0.2s, transform 0.2s;
+        }
+
+        .btn-gold:hover {
+            background: rgba(201, 168, 76, 0.07);
+            transform: translateY(-2px);
+        }
+
+        /* ── KEY METRICS ── */
+        .metrics-section {
+            padding: 0;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            background: var(--card);
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .metric {
+            text-align: center;
+            padding: 52px 24px;
+            border-right: 1px solid var(--border);
+        }
+
+        .metric:last-child { border-right: none; }
+
+        .metric-val {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            font-weight: 300;
+            color: var(--text);
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+
+        .metric-val.gold { color: var(--gold); }
+
+        .metric-val sup {
+            font-size: 1.4rem;
+            color: var(--gold);
+            vertical-align: super;
+        }
+
+        .metric-lbl {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.6rem;
+            letter-spacing: 0.22em;
+            color: var(--muted);
+            text-transform: uppercase;
+        }
+
+        /* ── CONTACT ── */
+        .contact-section {
+            padding: 120px 0;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: start;
+        }
+
+        .contact-text {
+            font-size: 0.92rem;
+            color: var(--muted);
+            line-height: 1.85;
+            font-weight: 300;
+            margin-bottom: 16px;
+        }
+
+        .contact-row {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-top: 32px;
+        }
+
+        .contact-row .dash {
+            width: 32px;
+            height: 1px;
+            background: var(--dim);
+        }
+
+        .contact-row a {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.78rem;
+            letter-spacing: 0.12em;
+            color: var(--cyan);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .contact-row a:hover { color: var(--text); }
+
+        .contact-row .sep {
+            color: var(--dim);
+            font-size: 0.7rem;
+        }
+
+        .contact-card {
+            background: var(--card);
+            border: 1px solid var(--border-g);
+            border-radius: 3px;
+            padding: 40px 36px;
+        }
+
+        .contact-card-label {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.58rem;
+            letter-spacing: 0.32em;
+            color: var(--gold);
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .contact-detail {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .contact-detail-item {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .contact-detail-key {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.58rem;
+            letter-spacing: 0.22em;
+            color: var(--dim);
+            text-transform: uppercase;
+        }
+
+        .contact-detail-val {
+            font-size: 0.88rem;
+            color: var(--text);
+        }
+
+        .contact-detail-val a {
+            color: var(--cyan);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .contact-detail-val a:hover { color: var(--text); }
+
+        .applying-note {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.68rem;
+            color: var(--gold);
+            letter-spacing: 0.1em;
+            padding: 10px 0 0;
+            border-top: 1px solid var(--border-g);
+            margin-top: 24px;
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            background: #03050c;
+            border-top: 1px solid var(--border);
+            padding: 44px 0;
+        }
+
+        .footer-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-brand {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.05rem;
+            font-weight: 500;
+            letter-spacing: 0.24em;
+            color: var(--dim);
+            text-transform: uppercase;
+        }
+
+        .footer-brand em { font-style: normal; color: var(--gold-dim); }
+
+        .footer-links {
+            display: flex;
+            gap: 28px;
+        }
+
+        .footer-links a {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.6rem;
+            letter-spacing: 0.22em;
+            color: var(--dim);
+            text-decoration: none;
+            text-transform: uppercase;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover { color: var(--muted); }
+
+        .footer-copy {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.58rem;
+            letter-spacing: 0.14em;
+            color: var(--dim);
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 960px) {
+            .product-grid  { grid-template-columns: 1fr; max-width: 520px; }
+            .ip-grid       { grid-template-columns: 1fr; }
+            .metrics-grid  { grid-template-columns: repeat(2, 1fr); }
+            .metric:nth-child(2) { border-right: none; }
+            .contact-grid  { grid-template-columns: 1fr; gap: 48px; }
+        }
+
+        @media (max-width: 640px) {
+            nav { padding: 0 20px; }
+            .wrap { padding: 0 20px; }
+            .nav-links li:not(:last-child) { display: none; }
+            .metrics-grid { grid-template-columns: 1fr 1fr; }
+            .metric { padding: 36px 16px; }
+            .hero-stat-row { gap: 28px; }
+            .ip-total { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+<canvas id="starfield"></canvas>
+
+<!-- NAV -->
+<nav id="nav">
+    <a href="/" class="nav-brand">
+        <span class="nav-name"><em>A</em>STROGNOSY AI</span>
+        <span class="nav-sub">Intelligence Infrastructure</span>
+    </a>
+    <ul class="nav-links">
+        <li><a href="/#research">Research</a></li>
+        <li><a href="/#divisions">Pacific</a></li>
+        <li><a href="/#divisions">Wharf</a></li>
+        <li><a href="/warf/">Wharf Demo</a></li>
+        <li><a href="/investor.html">Investors</a></li>
+        <li><a href="/#about" class="nav-cta">Contact</a></li>
+    </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+    <div class="wrap">
+        <div class="reveal">
+            <p class="hero-eyebrow">Investor Relations &nbsp;&middot;&nbsp; Astrognosy AI &nbsp;&middot;&nbsp; March 2026</p>
+            <h1>Building the context layer<br>for <em>the agentic internet.</em></h1>
+            <p class="hero-sub">Four patents. One architecture.</p>
+            <p class="hero-para">
+                Astrognosy AI develops PCF — a mathematical engine that compresses sequential data into
+                non-invertible structural signatures. The same engine powers network intrusion detection
+                (F1&nbsp;=&nbsp;0.929), LLM cost reduction (25% GPU), industrial fault detection
+                (F1&nbsp;=&nbsp;0.832), and the WARF reasoning exchange protocol. Four patents.
+                One architecture.
+            </p>
+            <div class="hero-stat-row">
+                <div class="hero-stat">
+                    <span class="hero-stat-val">4</span>
+                    <span class="hero-stat-lbl">Patents</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="hero-stat-val">187</span>
+                    <span class="hero-stat-lbl">Total Claims</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="hero-stat-val">5</span>
+                    <span class="hero-stat-lbl">Domains Validated</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="hero-stat-val"><em>0</em></span>
+                    <span class="hero-stat-lbl">Training Samples Required</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PRODUCT PORTFOLIO -->
+<section class="portfolio" id="portfolio">
+    <div class="wrap">
+        <div class="section-head reveal">
+            <p class="label">Product Portfolio</p>
+            <h2>Six Products.<br>One Engine.</h2>
+            <p class="lead">All products are domain applications of the same PCF engine, covered under Patent 2 sections 1.1–1.5. One defensible architecture, six addressable markets.</p>
+        </div>
+
+        <div class="product-grid">
+            <div class="div-card c-blue reveal" style="transition-delay:0.06s">
+                <p class="prod-domain">Cybersecurity — NIDS</p>
+                <h3 class="prod-name">Laminar</h3>
+                <p class="prod-result">CICIDS2017 F1 = 0.929<br>UNSW-NB15 F1 = 0.798</p>
+                <span class="status-badge beta">Beta</span>
+            </div>
+
+            <div class="div-card c-cyan reveal" style="transition-delay:0.12s">
+                <p class="prod-domain">LLM Routing</p>
+                <h3 class="prod-name">Compass</h3>
+                <p class="prod-result">25% GPU cost reduction</p>
+                <span class="status-badge live">Live</span>
+            </div>
+
+            <div class="div-card c-blue reveal" style="transition-delay:0.18s">
+                <p class="prod-domain">Robotics / IoT</p>
+                <h3 class="prod-name">Beacon</h3>
+                <p class="prod-result">CWRU Bearing F1 = 0.832</p>
+                <span class="status-badge design">Design</span>
+            </div>
+
+            <div class="div-card c-gold reveal" style="transition-delay:0.24s">
+                <p class="prod-domain">CPU Instruction</p>
+                <h3 class="prod-name">Forge</h3>
+                <p class="prod-result gold">Pipeline hazard detection</p>
+                <span class="status-badge silicon">Silicon</span>
+            </div>
+
+            <div class="div-card c-blue reveal" style="transition-delay:0.30s">
+                <p class="prod-domain">Industrial IoT</p>
+                <h3 class="prod-name">Stratum</h3>
+                <p class="prod-result">Predictive maintenance</p>
+                <span class="status-badge design">Design</span>
+            </div>
+
+            <div class="div-card c-cyan reveal" style="transition-delay:0.36s">
+                <p class="prod-domain">Multi-Agent</p>
+                <h3 class="prod-name">Wharf</h3>
+                <p class="prod-result">Zero-shot transfer F1 = 1.000</p>
+                <span class="status-badge live">Live (local)</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- IP PORTFOLIO -->
+<section class="ip-section" id="ip">
+    <div class="wrap">
+        <div class="section-head reveal">
+            <p class="label">Intellectual Property</p>
+            <h2>187 Claims.<br>One Defensible Core.</h2>
+            <p class="lead">A growing patent portfolio protects the PCF engine, its cross-domain applications, the Wharf arbitration platform, and the WARF P2P exchange protocol.</p>
+        </div>
+
+        <div class="ip-grid">
+            <div class="patent-card reveal" style="transition-delay:0.06s">
+                <p class="patent-num">Patent 1 &nbsp;&middot;&nbsp; U.S. 63/978,633</p>
+                <h3 class="patent-title">PCF Core Engine</h3>
+                <p class="patent-claims">42 Claims</p>
+                <div class="patent-status filed">
+                    Filed Feb 9, 2026
+                </div>
+            </div>
+
+            <div class="patent-card reveal" style="transition-delay:0.12s">
+                <p class="patent-num">Patent 2</p>
+                <h3 class="patent-title">Cross-Domain Applications</h3>
+                <p class="patent-claims">70 Claims</p>
+                <div class="patent-status filing-today">
+                    <span class="filing-dot"></span>
+                    Filing Today &mdash; March 16, 2026
+                </div>
+            </div>
+
+            <div class="patent-card reveal" style="transition-delay:0.18s">
+                <p class="patent-num">Patent 3</p>
+                <h3 class="patent-title">Wharf Arbitration + Advertising Auction</h3>
+                <p class="patent-claims">50 Claims</p>
+                <div class="patent-status filing-today">
+                    <span class="filing-dot"></span>
+                    Filing Today &mdash; March 16, 2026
+                </div>
+            </div>
+
+            <div class="patent-card reveal" style="transition-delay:0.24s">
+                <p class="patent-num">Patent 4</p>
+                <h3 class="patent-title">WARF P2P Exchange Protocol</h3>
+                <p class="patent-claims">25 Claims</p>
+                <div class="patent-status filing-today">
+                    <span class="filing-dot"></span>
+                    Filing Today &mdash; March 16, 2026
+                </div>
+            </div>
+        </div>
+
+        <div class="ip-total reveal" style="transition-delay:0.3s">
+            <div>
+                <div class="ip-total-val">187</div>
+                <div class="ip-total-lbl">Total Patent Claims</div>
+            </div>
+            <div class="ip-total-breakdown">
+                Patent 1 &nbsp;&middot;&nbsp; 42 claims &nbsp;&middot;&nbsp; Filed Feb 9, 2026<br>
+                Patent 2 &nbsp;&middot;&nbsp; 70 claims &nbsp;&middot;&nbsp; Filing March 16, 2026<br>
+                Patent 3 &nbsp;&middot;&nbsp; 50 claims &nbsp;&middot;&nbsp; Filing March 16, 2026<br>
+                Patent 4 &nbsp;&middot;&nbsp; 25 claims &nbsp;&middot;&nbsp; Filing March 16, 2026
+            </div>
+            <div>
+                <div class="ip-total-val" style="font-size:2rem; color:var(--muted);">4</div>
+                <div class="ip-total-lbl">Patents</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PITCH DECK -->
+<section class="pitch-section" id="pitch">
+    <div class="wrap">
+        <div class="section-head reveal">
+            <p class="label">Investor Presentation</p>
+            <h2>Pitch Deck</h2>
+            <p class="lead">12-slide investor presentation — keyboard navigable, print-ready.</p>
+        </div>
+
+        <div class="pitch-frame-wrap reveal" style="transition-delay:0.1s">
+            <iframe src="./ASTROGNOSY_PITCH_DECK.html" title="Astrognosy AI Investor Pitch Deck" allowfullscreen></iframe>
+        </div>
+
+        <div class="pitch-meta">
+            <span class="pitch-meta-note">12-slide investor presentation &nbsp;&middot;&nbsp; keyboard navigable &nbsp;&middot;&nbsp; print-ready</span>
+            <a href="./ASTROGNOSY_PITCH_DECK.html" target="_blank" class="btn-gold">Open Full Screen &nbsp;&rarr;</a>
+        </div>
+    </div>
+</section>
+
+<!-- KEY METRICS -->
+<section class="metrics-section" id="metrics">
+    <div class="wrap">
+        <div class="metrics-grid">
+            <div class="metric reveal">
+                <div class="metric-val">0.929</div>
+                <div class="metric-lbl">CICIDS2017 F1 — Laminar</div>
+            </div>
+            <div class="metric reveal" style="transition-delay:0.08s">
+                <div class="metric-val">0.798</div>
+                <div class="metric-lbl">UNSW-NB15 F1 — Laminar</div>
+            </div>
+            <div class="metric reveal" style="transition-delay:0.16s">
+                <div class="metric-val">0.832</div>
+                <div class="metric-lbl">CWRU Bearing F1 — Beacon</div>
+            </div>
+            <div class="metric reveal" style="transition-delay:0.24s">
+                <div class="metric-val">25<sup>%</sup></div>
+                <div class="metric-lbl">LLM GPU Reduction — Compass</div>
+            </div>
+            <div class="metric reveal" style="transition-delay:0.32s">
+                <div class="metric-val gold">1.000</div>
+                <div class="metric-lbl">Zero-shot Transfer F1 — Wharf</div>
+            </div>
+            <div class="metric reveal" style="transition-delay:0.40s">
+                <div class="metric-val">0.0149</div>
+                <div class="metric-lbl">Non-invertibility r — WARF P2P</div>
+            </div>
+            <div class="metric reveal" style="transition-delay:0.48s">
+                <div class="metric-val gold">187</div>
+                <div class="metric-lbl">Total Patent Claims</div>
+            </div>
+            <div class="metric reveal" style="transition-delay:0.56s">
+                <div class="metric-val">5</div>
+                <div class="metric-lbl">Domains Validated</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+    <div class="wrap">
+        <div class="contact-grid">
+            <div class="reveal">
+                <p class="label">Investor Inquiries</p>
+                <h2>Let's Talk.</h2>
+                <p class="contact-text">
+                    Astrognosy AI is actively seeking early-stage investment partners who understand
+                    the infrastructure layer of the agentic internet. PCF is not a product — it is
+                    a platform engine with four patent-protected domains and a growing deployment record.
+                </p>
+                <p class="contact-text">
+                    For partnership discussions, term sheet inquiries, or technical deep-dives,
+                    reach out directly.
+                </p>
+                <div class="contact-row">
+                    <div class="dash"></div>
+                    <a href="mailto:jakewesterbeck@gmail.com">jakewesterbeck@gmail.com</a>
+                    <span class="sep">&middot;</span>
+                    <a href="https://pcfic.com" target="_blank">pcfic.com</a>
+                </div>
+            </div>
+
+            <div class="contact-card reveal" style="transition-delay:0.15s">
+                <p class="contact-card-label">Contact Details</p>
+                <div class="contact-detail">
+                    <div class="contact-detail-item">
+                        <span class="contact-detail-key">Investor Inquiries</span>
+                        <span class="contact-detail-val">
+                            <a href="mailto:jakewesterbeck@gmail.com">jakewesterbeck@gmail.com</a>
+                        </span>
+                    </div>
+                    <div class="contact-detail-item">
+                        <span class="contact-detail-key">Product Demos</span>
+                        <span class="contact-detail-val">
+                            <a href="https://pcfic.com" target="_blank">pcfic.com</a>
+                        </span>
+                    </div>
+                    <div class="contact-detail-item">
+                        <span class="contact-detail-key">Founder</span>
+                        <span class="contact-detail-val">Jacob Westerbeck</span>
+                    </div>
+                    <div class="contact-detail-item">
+                        <span class="contact-detail-key">Company</span>
+                        <span class="contact-detail-val">Astrognosy AI</span>
+                    </div>
+                </div>
+                <p class="applying-note">Currently applying to AI Fund (Andrew Ng)</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="wrap">
+        <div class="footer-inner">
+            <div class="footer-brand"><em>A</em>STROGNOSY AI</div>
+            <div class="footer-links">
+                <a href="/">Home</a>
+                <a href="https://pcfic.com">pcfic.com</a>
+                <a href="mailto:jakewesterbeck@gmail.com">Contact</a>
+                <a href="./ASTROGNOSY_PITCH_DECK.html" target="_blank">Pitch Deck</a>
+            </div>
+            <p class="footer-copy">&copy; 2026 Astrognosy AI &middot; Pacific Intelligence Concepts</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+// ── STARFIELD ──
+(function() {
+    const canvas = document.getElementById('starfield');
+    const ctx = canvas.getContext('2d');
+    let stars = [], W, H;
+
+    function resize() {
+        W = canvas.width  = window.innerWidth;
+        H = canvas.height = window.innerHeight;
+        initStars();
+    }
+
+    function initStars() {
+        stars = [];
+        const n = Math.round(W * H / 5800);
+        for (let i = 0; i < n; i++) {
+            stars.push({
+                x: Math.random() * W,
+                y: Math.random() * H,
+                r: Math.random() * 1.1 + 0.15,
+                base: Math.random() * 0.55 + 0.08,
+                spd: Math.random() * 0.0035 + 0.0008,
+                ph: Math.random() * Math.PI * 2
+            });
+        }
+    }
+
+    function draw(t) {
+        ctx.clearRect(0, 0, W, H);
+        for (const s of stars) {
+            const a = s.base * (0.55 + 0.45 * Math.sin(t * s.spd + s.ph));
+            ctx.beginPath();
+            ctx.arc(s.x, s.y, s.r, 0, 6.2832);
+            ctx.fillStyle = `rgba(220,228,255,${a})`;
+            ctx.fill();
+        }
+        requestAnimationFrame(draw);
+    }
+
+    resize();
+    requestAnimationFrame(draw);
+    window.addEventListener('resize', resize);
+})();
+
+// ── NAV OPACITY ──
+(function() {
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', function() {
+        nav.style.background = window.scrollY > 70
+            ? 'rgba(6,9,18,0.96)'
+            : 'rgba(6,9,18,0.82)';
+    }, { passive: true });
+})();
+
+// ── REVEAL ON SCROLL ──
+(function() {
+    const els = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) {
+            if (e.isIntersecting) {
+                e.target.classList.add('in');
+                io.unobserve(e.target);
+            }
+        });
+    }, { threshold: 0.12 });
+    els.forEach(function(el) { io.observe(el); });
+})();
+</script>
+</body>
+</html>
