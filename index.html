@@ -1014,7 +1014,7 @@
     </a>
     <ul class="nav-links">
         <li><a href="#research">Research</a></li>
-        <li><a href="#divisions">Pacific</a></li>
+        <li><a href="/pacific">Pacific →</a></li>
         <li><a href="#divisions">Wharf</a></li>
         <li><a href="/warf/">Wharf Demo</a></li>
         <li><a href="/investor.html">Investors</a></li>
@@ -1042,7 +1042,6 @@
         </p>
         <div class="hero-ctas">
             <a href="https://pcfic.com" class="btn-primary">View Products &thinsp;&rarr;</a>
-            <a href="./WARF_Whitepaper_v1.pdf" class="btn-ghost">Read the Whitepaper</a>
         </div>
     </div>
 
@@ -1112,7 +1111,7 @@
             <div class="reveal">
                 <p class="label">Core Technology</p>
                 <h2>One Engine.<br>Three Domains.</h2>
-                <p class="lead">The Positional Correlation Field (PCF) is a proprietary PMI-based scoring method — CPU-native, requiring zero labeled training data, and domain-agnostic by design.</p>
+                <p class="lead">The Positional Correlation Field (PCF) is a proprietary structural pattern scoring method — CPU-native, requiring zero labeled training data, and domain-agnostic by design.</p>
                 <ul class="engine-bullets">
                     <li>CPU-native execution</li>
                     <li>No training phase required</li>
@@ -1125,18 +1124,18 @@
 
             <div class="formula-box reveal" style="transition-delay:0.2s">
                 <code>
-                    <span class="formula-line"><span class="c">// Positional Mutual Information — lag k</span></span>
-                    <span class="formula-line"><span class="v">PMI</span><span class="d">_k(t_i, t_j) = </span><span class="f">log</span><span class="d">[ P(t_i,t_j,k) /</span></span>
-                    <span class="formula-line"><span class="d">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;( P(t_i) &middot; P(t_j) ) ]</span></span>
+                    <span class="formula-line"><span class="c">// Structural pattern analysis — position k</span></span>
+                    <span class="formula-line"><span class="v">pattern</span><span class="d">_k(t_i, t_j) = </span><span class="f">co-occurrence</span></span>
+                    <span class="formula-line"><span class="d">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;structural alignment score</span></span>
                     <hr class="formula-hr">
-                    <span class="formula-line"><span class="c">// Decay kernel: K(k) = 1/(k+1), k = 1..K</span></span>
-                    <span class="formula-line"><span class="v">PMI'_k</span><span class="d"> = </span><span class="v">PMI_k</span><span class="d"> &times; K(k)</span></span>
+                    <span class="formula-line"><span class="c">// Position-weighted decay, k = 1..K</span></span>
+                    <span class="formula-line"><span class="v">weighted_k</span><span class="d"> = </span><span class="v">pattern_k</span><span class="d"> &times; decay(k)</span></span>
                     <hr class="formula-hr">
-                    <span class="formula-line"><span class="c">// Normalized score per lag</span></span>
-                    <span class="formula-line"><span class="g">&sigma;_k</span><span class="d"> = </span><span class="f">mean</span><span class="d">(PMI'_k) / (</span><span class="f">std</span><span class="d">(PMI'_k) + &epsilon;)</span></span>
+                    <span class="formula-line"><span class="c">// Normalized structural signature per position</span></span>
+                    <span class="formula-line"><span class="g">sig_k</span><span class="d"> = </span><span class="f">normalize</span><span class="d">(weighted_k, calibrated threshold)</span></span>
                     <hr class="formula-hr">
                     <span class="formula-line"><span class="c">// Winner selection</span></span>
-                    <span class="formula-line"><span class="v">S</span><span class="d"> = </span><span class="f">aggregate</span><span class="d">(&sigma;_1, ..., &sigma;_K)</span></span>
+                    <span class="formula-line"><span class="v">S</span><span class="d"> = </span><span class="f">aggregate</span><span class="d">(sig_1, ..., sig_K)</span></span>
                     <span class="formula-line"><span class="v">winner</span><span class="d"> = </span><span class="f">argmax</span><span class="d">(S) &nbsp;<span class="c">// agent_id excluded</span></span></span>
                 </code>
             </div>
@@ -1330,7 +1329,6 @@
             <div class="footer-links">
                 <a href="https://pcfic.com">pcfic.com</a>
                 <a href="mailto:jacob@pcfic.com">Contact</a>
-                <a href="./WARF_Whitepaper_v1.pdf">Whitepaper</a>
             </div>
             <p class="footer-copy">&copy; 2026 Astrognosy AI &middot; Pacific Intelligence Concepts</p>
         </div>
