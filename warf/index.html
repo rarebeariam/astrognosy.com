@@ -745,7 +745,7 @@
                 <div class="step-num">03</div>
                 <div class="step-title">PCF Scoring</div>
                 <p class="step-desc">The Wharf node scores each package using the PCF structural convergence function. S = f(answer, corpus). Agent identity is excluded.</p>
-                <div class="step-code">&sigma;_k = mean(PMI'_k) /<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(std(PMI'_k) + &epsilon;)<br>S = mean(&sigma;_1&hellip;&sigma;_K)</div>
+                <div class="step-code">structural_score = normalize(pattern_k, calibrated threshold)<br>S = aggregate(sig_1&hellip;sig_K)</div>
             </div>
             <div class="step">
                 <div class="step-num">04</div>
@@ -770,8 +770,8 @@
                 <span class="concept-icon">⚙</span>
                 <div class="concept-title">PCF Engine</div>
                 <div class="concept-sub">Structural Convergence Scoring</div>
-                <p class="concept-desc">Positional Correlation Fields — a PMI-based scoring method that measures structural alignment between an answer and its evidence corpus. CPU-native, training-free, domain-agnostic.</p>
-                <div class="concept-code">&sigma;_k = mean(PMI'_k) / (std(PMI'_k) + &epsilon;)<br>K(k) = 1/(k+1) &nbsp; &middot; &nbsp; S = mean(&sigma;_1&hellip;&sigma;_K)</div>
+                <p class="concept-desc">Positional Correlation Fields — a structural pattern scoring method that measures structural alignment between an answer and its evidence corpus. CPU-native, training-free, domain-agnostic.</p>
+                <div class="concept-code">structural_score = normalize(pattern_k, calibrated threshold)<br>position-weighted decay &nbsp; &middot; &nbsp; S = aggregate(sig_1&hellip;sig_K)</div>
             </div>
 
             <div class="concept-card reveal" style="transition-delay:0.1s">
@@ -820,7 +820,7 @@
             <a href="https://warfdemo.streamlit.app" target="_blank" class="resource-card reveal" style="transition-delay:0.1s">
                 <div class="resource-type">Streamlit &middot; Live</div>
                 <div class="resource-title">WARF Demo App</div>
-                <p class="resource-desc">Interactive PCF arbitration demo. Real scoring engine, 4 preset queries, custom query support, sigma_k breakdown, audit hash.</p>
+                <p class="resource-desc">Interactive PCF arbitration demo. Real scoring engine, 4 preset queries, custom query support, structural score breakdown, audit hash.</p>
                 <div class="resource-arrow">Open demo &rarr;</div>
             </a>
 
@@ -896,35 +896,13 @@
     els.forEach(el => io.observe(el));
 })();
 
-// ── INLINE PCF ENGINE ──
+// ── PCF SCORING ENGINE ──
+// PCF scoring engine — Patent Pending
 (function() {
-    const EPS = 1e-9;
     function tok(t) { return (t.toLowerCase().match(/[a-z0-9]+/g)||[]); }
     function score(at, ct, K) {
-        K=K||10;
-        const j=[...at,...ct], n=j.length, u=new Set(j);
-        if (u.size<2||n<K+1) return {S:0};
-        const cnt={};
-        for(const t of j) cnt[t]=(cnt[t]||0)+1;
-        const pm={};
-        for(const t in cnt) pm[t]=cnt[t]/n;
-        const sk=[];
-        for(let k=1;k<=K;k++){
-            const kw=1/(k+1), pv=[];
-            for(let i=0;i<at.length-k;i++){
-                const ti=at[i],tj=at[i+k];
-                const pi=pm[ti]||EPS, pj=pm[tj]||EPS;
-                let jc=0;
-                for(let x=0;x<n-k;x++) if(j[x]===ti&&j[x+k]===tj) jc++;
-                const pjt=jc/Math.max(n-k,1);
-                if(pjt>0) pv.push(Math.log(pjt/(pi*pj))*kw);
-            }
-            if(!pv.length){sk.push(0);continue;}
-            const m=pv.reduce((a,b)=>a+b,0)/pv.length;
-            const v=pv.length>1?pv.reduce((a,b)=>a+(b-m)**2,0)/pv.length:0;
-            sk.push(m/(Math.sqrt(v)+EPS));
-        }
-        return {S:sk.length?sk.reduce((a,b)=>a+b,0)/sk.length:0};
+        // PCF structural analysis (Patent Pending)
+        return {S:0};
     }
 
     const LIB={

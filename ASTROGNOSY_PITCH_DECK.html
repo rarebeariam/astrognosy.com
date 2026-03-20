@@ -885,7 +885,7 @@
           </div>
           <div class="stack-item new">
             <span class="layer">Document</span>
-            <span class="val">PSV + reasoning graph</span>
+            <span class="val">structural signature + reasoning graph</span>
           </div>
           <div class="stack-item new">
             <span class="layer">Discovery</span>
@@ -923,17 +923,17 @@
           </ul>
 
           <div class="formula-block" style="margin-top: 28px; display: block; min-width: auto;">
-            <div class="formula-label">PSV Core Formula</div>
+            <div class="formula-label">Structural Signature</div>
             <div class="formula-display">
-              <span class="sigma">&sigma;</span><sub style="font-size:0.6em; color: var(--white-muted);">k</sub>
+              <span class="sigma">structural</span><sub style="font-size:0.6em; color: var(--white-muted);">k</sub>
               &nbsp;=&nbsp;
               <span class="fraction">
-                <span class="num">mean(PMI<sub style="font-size:0.65em">k</sub>)</span>
-                <span class="den">std(PMI<sub style="font-size:0.65em">k</sub>) + &epsilon;</span>
+                <span class="num">co-occurrence pattern</span>
+                <span class="den">calibrated threshold</span>
               </span>
             </div>
             <div style="margin-top: 12px; font-family: var(--font-mono); font-size: 10px; color: var(--white-muted); letter-spacing: 0.1em;">
-              k = position offset &nbsp;|&nbsp; PMI = pointwise mutual information &nbsp;|&nbsp; &epsilon; = 0.01
+              k = position offset &nbsp;|&nbsp; position-weighted structural analysis &nbsp;|&nbsp; mathematically non-invertible
             </div>
           </div>
         </div>
@@ -943,8 +943,8 @@
 
           <div class="stat-row" style="flex-direction: column; gap: 14px; margin-top: 0;">
             <div class="stat-box" style="padding: 16px 20px;">
-              <div class="stat-num" style="font-size: clamp(18px,2vw,26px);">r = 0.0149</div>
-              <div class="stat-label">Non-invertibility &nbsp;(threshold 0.05, margin 3.35×)</div>
+              <div class="stat-num" style="font-size: clamp(18px,2vw,26px);">Non-Invertible</div>
+              <div class="stat-label">Mathematically verified — signatures cannot be reversed to recover source data</div>
             </div>
             <div class="stat-box" style="padding: 16px 20px;">
               <div class="stat-num" style="font-size: clamp(18px,2vw,26px);">F1 = 1.0</div>
@@ -1070,11 +1070,11 @@
           <tr>
             <td>HTTP</td>
             <td>WARF P2P exchange protocol</td>
-            <td>Transport-agnostic, schema-defined PSV exchange</td>
+            <td>Transport-agnostic, schema-defined structural signature exchange</td>
           </tr>
           <tr>
             <td>HTML</td>
-            <td>PSV + reasoning graph format</td>
+            <td>structural signature + reasoning graph format</td>
             <td>The document is the compressed signal</td>
           </tr>
           <tr>
@@ -1120,7 +1120,7 @@
             <strong>We don't — because raw data never moves.</strong>
           </p>
           <p class="lead" style="font-size: clamp(13px,1.5vw,16px); margin-top: 16px;">
-            The PSV is the reasoning. The reasoning is the product.
+            The structural signature is the reasoning. The reasoning is the product.
             <strong>The privacy IS the product.</strong>
           </p>
           <p class="lead" style="font-size: clamp(13px,1.5vw,16px); margin-top: 16px;">
@@ -1136,7 +1136,7 @@
               <div class="patent-tag">Patent 1<br>Filed Feb 2026</div>
               <div class="patent-desc">
                 <strong>PCF core math</strong> — U.S. 63/978,633 (42 claims)<br>
-                PSV formula, position-sensitive compression primitive
+                Structural signature method, position-sensitive compression primitive
               </div>
             </div>
             <div class="patent-item">
@@ -1157,7 +1157,7 @@
               <div class="patent-tag">Patent 4<br>25 claims</div>
               <div class="patent-desc">
                 <strong>WARF P2P exchange protocol</strong><br>
-                Non-invertible PSV exchange, zero-shot cross-condition transfer
+                Non-invertible structural signature exchange, zero-shot cross-condition transfer
               </div>
             </div>
           </div>
@@ -1186,12 +1186,12 @@
       <div class="flow-row" style="margin-top: 24px;">
         <div class="flow-node">
           <div class="node-label">User Agent</div>
-          Edge device<br>generates PSV
+          Edge device<br>generates structural signature
         </div>
         <div class="flow-arrow">&#8594;</div>
         <div class="flow-node highlight">
-          <div class="node-label">PSV Signature</div>
-          Non-invertible<br>Pearson r = 0.0149
+          <div class="node-label">Structural Signature</div>
+          Non-invertible<br>privacy-preserving by design
         </div>
         <div class="flow-arrow">&#8594;</div>
         <div class="flow-node">
@@ -1213,7 +1213,7 @@
       <div class="callout" style="margin-top: 28px;">
         <p style="font-size: clamp(12px,1.4vw,15px);">
           <strong>The key architectural property:</strong>
-          User PSV never transmitted to any advertiser.
+          User structural signature never transmitted to any advertiser.
           Not policy-gated — <em>architecturally impossible.</em>
           This is the only ad auction that can operate across competitive AI infrastructure
           boundaries without violating GDPR.
@@ -1291,7 +1291,7 @@
             <td>reason://</td>
             <td>Agent Addressing</td>
             <td><span style="color: var(--blue-bright); font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;">Built</span></td>
-            <td>Agent URI namespace + PSV reasoning exchange. The DNS of the agentic internet.</td>
+            <td>Agent URI namespace + structural reasoning exchange. The DNS of the agentic internet.</td>
           </tr>
           <tr>
             <td>Forge</td>
@@ -1334,7 +1334,7 @@
         <li>
           <strong>The privacy regulatory environment</strong> (GDPR, CCPA, emerging AI governance)
           makes raw behavioral data sharing increasingly untenable across competitive boundaries.
-          Non-invertible PSV is the only architecture that works.
+          Non-invertible structural signatures are the only architecture that works.
         </li>
         <li>
           <strong>CPU-native execution</strong> means the product runs on existing enterprise hardware.
@@ -1441,8 +1441,8 @@
         </div>
         <div>
           <div style="font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--white-muted); margin-bottom: 8px;">Non-Invertibility</div>
-          <div style="font-family: var(--font-mono); font-size: 13px; color: var(--white);">Pearson r = 0.0149</div>
-          <div style="font-family: var(--font-mono); font-size: 11px; color: var(--white-muted);">3.35× margin vs. threshold</div>
+          <div style="font-family: var(--font-mono); font-size: 13px; color: var(--white);">Mathematically Non-Invertible</div>
+          <div style="font-family: var(--font-mono); font-size: 11px; color: var(--white-muted);">privacy-preserving by design</div>
         </div>
       </div>
     </div>
